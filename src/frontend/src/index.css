@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Fonts ─────────────────────────────────────────────── */
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("/assets/fonts/PlayfairDisplay.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Design Tokens ──────────────────────────────────────── */
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Warm-white background, near-black text */
+    --background: 0.985 0.005 85;
+    --foreground: 0.13 0.01 60;
+
+    /* Cards */
+    --card: 1 0 0;
+    --card-foreground: 0.13 0.01 60;
+
+    /* Popovers */
+    --popover: 1 0 0;
+    --popover-foreground: 0.13 0.01 60;
+
+    /* Primary — deep charcoal */
+    --primary: 0.18 0.01 60;
+    --primary-foreground: 0.985 0 0;
+
+    /* Secondary — soft warm grey */
+    --secondary: 0.94 0.005 80;
+    --secondary-foreground: 0.18 0.01 60;
+
+    /* Muted */
+    --muted: 0.94 0.005 80;
+    --muted-foreground: 0.52 0.01 60;
+
+    /* Gold accent */
+    --accent: 0.72 0.09 75;
+    --accent-foreground: 0.12 0.01 60;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Borders */
+    --border: 0.88 0.008 80;
+    --input: 0.88 0.008 80;
+    --ring: 0.72 0.09 75;
+
+    /* Charts */
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    /* Sidebar */
+    --sidebar: 0.985 0.005 85;
+    --sidebar-foreground: 0.13 0.01 60;
+    --sidebar-primary: 0.18 0.01 60;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.94 0.005 80;
+    --sidebar-accent-foreground: 0.18 0.01 60;
+    --sidebar-border: 0.88 0.008 80;
+    --sidebar-ring: 0.72 0.09 75;
+
+    /* Custom marble tokens */
+    --gold: 0.72 0.09 75;
+    --gold-light: 0.84 0.07 78;
+    --gold-dark: 0.55 0.11 72;
+    --dark-surface: 0.12 0.01 60;
+    --dark-surface-2: 0.16 0.01 60;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "GeneralSans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "PlayfairDisplay", serif;
+  }
+}
+
+/* ── Custom Utilities ──────────────────────────────────── */
+@layer utilities {
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+  .text-gold-light {
+    color: oklch(var(--gold-light));
+  }
+  .bg-gold {
+    background-color: oklch(var(--gold));
+  }
+  .bg-gold-light {
+    background-color: oklch(var(--gold-light));
+  }
+  .bg-dark-surface {
+    background-color: oklch(var(--dark-surface));
+  }
+  .bg-dark-surface-2 {
+    background-color: oklch(var(--dark-surface-2));
+  }
+  .border-gold {
+    border-color: oklch(var(--gold));
+  }
+  .border-gold-light {
+    border-color: oklch(var(--gold-light));
+  }
+  .font-display {
+    font-family: "PlayfairDisplay", serif;
+  }
+  .font-body {
+    font-family: "GeneralSans", sans-serif;
+  }
+  .section-pad {
+    @apply py-20 px-4 md:px-8 lg:px-16;
+  }
+  .gold-underline {
+    position: relative;
+  }
+  .gold-underline::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: oklch(var(--gold));
+  }
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+}
